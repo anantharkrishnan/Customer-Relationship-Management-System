@@ -46,6 +46,10 @@ app.use((err, req, res, next) => {
 app.get('/', (req, res) => res.send('Hello World!'));
 app.use('/api', router);
 
+app.use((req, res) => {
+  res.status(404).json({ message: 'Route not found' });
+});
+
 // Start the server
 
 app.listen(process.env.PORT,()=>{
